@@ -1,0 +1,35 @@
+{
+  "dataset_name": "BioCopilot CHO-K1 Bioreactor Benchmark Dataset",
+  "dataset_identifier": "biocopilot-cho-benchmark-v1",
+  "data_provenance": "SYNTHETIC DEMO DATA — NOT EXPERIMENTAL DATA",
+  "total_batches": 4,
+  "total_rows": 676,
+  "time_span_hours": 336.0,
+  "sampling_interval_hours": 2.0,
+  "cell_line": "CHO-K1 mAb Producer",
+  "culture_type": "Fed-Batch Bioreactor",
+  "vessel_scale": "2.0 L Working Volume",
+  "batches": [
+    {
+      "batch_id": "BATCH-2026-CHO-001",
+      "type": "Standard Fed-Batch Benchmark",
+      "description": "Controlled nutrient fed-batch run with optimal stationary viability."
+    },
+    {
+      "batch_id": "BATCH-2026-CHO-002",
+      "type": "Replicate Batch",
+      "description": "Biological replicate demonstrating natural run-to-run variation."
+    },
+    {
+      "batch_id": "BATCH-2026-CHO-003",
+      "type": "Lactate Accumulation / Overflow Metabolism",
+      "description": "High glucose feeding creating toxic lactate accumulation (> 3.5 g/L) and accelerated decline."
+    },
+    {
+      "batch_id": "BATCH-2026-CHO-004",
+      "type": "Optimized Feed Control",
+      "description": "High density cell culture (>20e6 cells/mL) with tight metabolite control."
+    }
+  ],
+  "disclaimer": "SYNTHETIC DEMO DATA — NOT EXPERIMENTAL DATA. Calibrated with biophysical Monod and metabolic inhibition kinetics for competition validation. Never present synthetic data as experimental wet-lab data."
+}

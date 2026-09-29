@@ -1,0 +1,15 @@
+services:
+  biocopilot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: biocopilot-app
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - HOST=0.0.0.0
+      - ENVIRONMENT=production-demo
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
