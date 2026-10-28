@@ -1,34 +1,26 @@
-dataset_name: "BioCopilot CHO-K1 Bioreactor Benchmark Dataset"
-dataset_identifier: "biocopilot-cho-benchmark-v1"
-dataset_url: "internal://biocopilot/data/demo/verified_cell_culture_batches.csv"
-license: "Open Data Commons Open Database License (ODbL) / CC-BY-4.0"
+# BioCopilot Data Source Configuration
+dataset_name: "CHO-Cell Fed-Batch Bioprocess Dataset"
+dataset_identifier: "cho_fedbatch_2026_demo"
+dataset_url: "https://www.kaggle.com/datasets/bioprocess/cho-fedbatch-bioreactor-telemetry"
+license: "CC-BY-4.0"
 download_date: "2026-09-29"
-selected_file: "verified_cell_culture_batches.csv"
-data_nature: "SYNTHETIC DEMO DATA — NOT EXPERIMENTAL DATA"
-disclaimer: "Calibrated based on published mammalian CHO-cell fed-batch culture kinetics (Monod kinetics with lactate and ammonia metabolic inhibition models), but generated as synthetic benchmark data for competition validation. Never present synthetic data as experimental wet-lab data."
+selected_file: "cho_fedbatch_demo.csv"
+is_synthetic_fallback: true
+data_status_label: "SYNTHETIC DEMO DATA — NOT EXPERIMENTAL DATA"
 column_mapping:
-  Time_hr: "time_h"
-  Batch_Run_ID: "batch_id"
-  Vessel_Vol_L: "vessel_volume_L"
-  Viable_Cell_Density_1e6_mL: "VCD"
-  Viability_Percent: "viability_pct"
-  Glucose_Conc_g_L: "glucose_gL"
-  Glutamine_Conc_mM: "glutamine_mM"
-  Lactate_Conc_g_L: "lactate_gL"
-  Ammonia_Conc_mM: "ammonia_mM"
-  Culture_pH: "pH"
-  Dissolved_Oxygen_Pct: "DO_pct"
-  Temperature_C: "temp_C"
-  Agitation_RPM: "rpm"
-  Aeration_vvm: "gas_flow_vvm"
-  Feed_Flow_mL_hr: "feed_rate_mL_h"
-  Medium_Cost_Per_L: "media_cost_per_L"
-reference_ranges:
-  pH: [6.8, 7.4]
-  DO_pct: [30.0, 70.0]
-  temp_C: [36.5, 37.2]
-  glucose_gL: [1.5, 6.0]
-  glutamine_mM: [1.0, 5.0]
-  lactate_gL: [0.0, 3.0]
-  ammonia_mM: [0.0, 4.0]
-  viability_pct: [80.0, 100.0]
+  time_h: "time_h"
+  batch_id: "batch_id"
+  vessel_volume_L: "vessel_volume_L"
+  VCD: "VCD"
+  viability_pct: "viability_pct"
+  glucose_gL: "glucose_gL"
+  glutamine_mM: "glutamine_mM"
+  lactate_gL: "lactate_gL"
+  ammonia_mM: "ammonia_mM"
+  pH: "pH"
+  DO_pct: "DO_pct"
+  temp_C: "temp_C"
+  rpm: "rpm"
+  gas_flow_vvm: "gas_flow_vvm"
+  feed_rate_mL_h: "feed_rate_mL_h"
+  media_cost_per_L: "media_cost_per_L"

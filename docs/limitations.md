@@ -1,50 +1,19 @@
-# BioCopilot: Scientific Scope, Operational Boundaries & Limitations
+# BioCopilot Limitations & Scientific Disclaimers
 
-**Standard:** ISO 13485 / FDA 21 CFR Part 11 / GAMP 5 Category 4 Configured Software  
-**Status:** Competition-Ready Prototype & Decision-Support System  
-
----
-
-## 1. System Intent & Non-Clinical Disclaimer
-
-BioCopilot is designed exclusively as an **in-silico decision-support tool** for bioprocess development teams. It serves as an analytical companion to aid scientists in spotting process drift, anticipating byproduct surges, exploring feed schedules, and sizing large-scale bioreactors.
-
-> [!WARNING]
-> **NO DIRECT HARDWARE CONTROL:**  
-> BioCopilot does NOT interface directly with bioreactor programmable logic controllers (PLCs), peristaltic pumps, mass flow controllers, or electrical actuation systems. Under no circumstances should algorithmic outputs be wired directly to laboratory hardware without intermediate qualified human review.
+The BioCopilot application is designed solely as an **Explainable Decision-Support System** for bioprocess research and scale-up planning.
 
 ---
 
-## 2. Core Scientific Limitations
+## Explicit Platform Limitations
 
-### 1. Dataset Dependencies & Range Extrapolation
-* The predictive models (Linear Regression, Random Forest, Gradient Boosting) are trained on specific operational envelopes (0 to 336 hours, 2 L working volume, CHO-K1 cell lines).
-* Predictions generated outside of these training envelopes (e.g. microbial fermentation, perfusion bioprocesses, or viral vector production) represent unverified extrapolations.
-
-### 2. Synthetic Data Disclosure
-* The benchmark dataset (`cho_fedbatch_processed.csv`) was synthesized using biophysically calibrated Monod and metabolic inhibition kinetics to model typical industrial Chinese Hamster Ovary (CHO) culture behavior.
-* **SYNTHETIC DEMO DATA — NOT EXPERIMENTAL DATA.** Synthetic datasets do not exhibit the full stochastic noise, clonal drift, or epigenetic variability of physical biological systems.
-
-### 3. Hydrodynamic Scale-Up Approximations
-* Scale-up calculations (2 L → 10 L → 100 L → 1,000 L) are based on standard bioprocess dimensional analysis:
-  $$P/V = \frac{N_p \rho N^3 D^5}{V}, \quad v_{tip} = \pi N D, \quad k_L a = k (P/V)^a (v_{gas})^b$$
-* These equations assume geometric similarity ($H/T = 1.5, D/T = 0.33$) and uniform fluid properties. Real-world bioreactors exhibit non-ideal flow patterns, dead zones, impeller baffle interactions, and hydrostatic pressure gradients that require empirical CFD or wet-lab validation.
-
-### 4. Mechanistic Digital Twin vs. Biological Reality
-* The internal digital twin approximates cell growth, death, substrate uptake, and byproduct inhibition using coupled ordinary differential equations.
-* This model is an approximation of central carbon metabolism and does not account for complex cellular signaling, post-translational modifications (e.g. antibody glycosylation patterns), or nutrient micro-heterogeneity.
-
-### 5. Statistical Correlation vs. Biological Causation
-* Feature importances (SHAP / tree feature attributions) reflect the statistical weight assigned by the machine learning regressor.
-* While a rising lactate signal strongly associates with a predicted viability decrease, **model correlation does not prove biological causation**. Intracellular mechanisms must be verified experimentally.
-
-### 6. Media Economic Calculations
-* All media cost calculations (cost per liter, cost per billion cells, savings percentage) are derived mathematically from user-specified price and usage tables.
-* Market prices for raw chemicals, growth factors, and serum-free feeds fluctuate geographically and across suppliers.
-
----
-
-## 3. Mandatory Operator Responsibilities
-
-1. **Human-in-the-Loop Sign-Off:** Every feed modulation, agitation change, or operational recommendation must be reviewed and approved by a qualified bioprocess technician or lead engineer.
-2. **Empirical Benchtop Validation:** Small-scale (shake flask / 2L benchtop) experimental confirmation is strictly required prior to pilot-plant or commercial-scale deployment.
+1. **Decision-Support Only:** BioCopilot does NOT directly connect to, actuate, or control physical laboratory equipment or bioreactors.
+2. **Human Approval Mandatory:** All recommended feed schedules, media alterations, and scale-up parameters require review and explicit approval by qualified human bioprocess engineers.
+3. **Data Dependency:** Machine learning prediction accuracy depends strictly on the volume, quality, and representativeness of historical batch data.
+4. **Synthetic Telemetry Labelling:** Pre-packaged demo datasets and real-time virtual sensor streams are generated for demonstration purposes and are explicitly tagged:  
+   `SYNTHETIC DEMO DATA — NOT EXPERIMENTAL DATA`
+5. **Engineering Approximations:** Scale-up equations (constant $P/V$, tip speed, $k_L a$, mixing time) rely on standard hydrodynamic correlations and must be labeled:  
+   `ENGINEERING ESTIMATE — REQUIRES VALIDATION`
+6. **Digital Twin Approximation:** The Monod-type kinetic model is a simplified ODE approximation and does not replace empirical cell-line characterization.
+7. **Model Correlation vs Biological Causation:** SHAP and feature importance values indicate statistical association within trained models, not proven biological causation.
+8. **Cost Calculations:** Media cost savings and Pareto frontiers depend entirely on user-editable input pricing tables.
+9. **Wet-Lab Validation:** All optimized feed strategies and scale-up parameters must undergo empirical wet-lab validation prior to clinical or manufacturing deployment.

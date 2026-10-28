@@ -1,58 +1,42 @@
-# BioCopilot: 3-Minute Judge Demo Script & Walkthrough
+# BioCopilot 5-Minute Judge Demo Script
 
-**Target Event:** YUVA Megathon 2026 — SRM IST Trichy — Biotech Track  
-**Pitch Duration:** 3 Minutes + 2 Minutes Q&A (Total 5-Min Judge Experience)  
-**Live URL:** `http://127.0.0.1:5173/` (Backend: `http://127.0.0.1:8000/`)
-
----
-
-## 1. The Core 3-Minute Narrative
-
-> **"Judges, cell culture bioprocessing is a multi-million-dollar endeavor where a single batch failure can cost upwards of $2 million.**
->
-> Today, bioprocess engineers are forced to fly blind between sampling points and guess how 2-liter benchtop recipes will behave when scaled to 1,000-liter production bioreactors.
->
-> We built **BioCopilot** — an AI Copilot for Scalable Cell-Culture Bioprocess Design.
->
-> It is an explainable decision-support system that:
-> 1. Detects metabolic risk in real time,
-> 2. Predicts future cell density, viability, and toxic metabolite trajectories,
-> 3. Optimizes nutrient feeds and media economics in INR and USD,
-> 4. Evaluates scale-up hydrodynamics from 2 L toward 1,000 L,
-> 5. And strictly requires human operator sign-off before any recommendation can be enacted."
+**Target:** YUVA Megathon 2026 — Biotech Track  
+**Objective:** Deliver a flawless 3-minute pitch + 2-minute live demo showing real AI bioprocess decision support.
 
 ---
 
-## 2. 16-Step Deterministic Demo Execution Flow
+## Storyline Narrative
 
-| Step | Action on UI | Visual State | Judge Narrative |
-| :--- | :--- | :--- | :--- |
-| **01** | Click **"START 5-MIN DEMO"** | Overview Home Dashboard loads | *"Here is our active process: BATCH-2026-CHO-001, a 14-day CHO cell fed-batch run."* |
-| **02** | Navigates to `/data` | Data Quality Gauge shows **99.6 / 100** | *"Before allowing any AI model to make predictions, BioCopilot validates data completeness, sampling intervals, and physiological boundaries."* |
-| **03** | View Column Adapter table | 16/16 Canonical Variables Mapped | *"Our data adapter automatically fuzzy-maps raw bioreactor headers to standardized bioprocess variables."* |
-| **04** | Navigate to `/monitor` | 12 Virtual Sensor Cards Green | *"We replay the culture as 12 synchronized virtual sensors streaming at 2.0-second intervals."* |
-| **05** | Point to baseline telemetry | VCD: 8.6, Viability: 96.5%, Lactate: 2.1 g/L | *"In mid-exponential phase, cellular metabolism is healthy with steady biomass accumulation."* |
-| **06** | Click **"Inject Glucose Overfeed"** | Alert banner & glucose rises to 5.8 g/L | *"Now we simulate a real-world operator error or pump surge: an excessive glucose feed event."* |
-| **07** | Observe telemetry response | Lactate climbs to 3.85 g/L | *"Excessive substrate triggers Warburg-like aerobic glycolysis: cells rapidly convert surplus pyruvate into toxic lactate."* |
-| **08** | Navigate to `/risks` | Red **CRITICAL Alert** on `lactate_gL` | *"The Metabolic Risk Engine catches the excursion immediately, citing intracellular acidification risk."* |
-| **09** | Navigate to `/predictions` | 48-Hour Forecast with 95% CI Ribbons | *"Instead of a dumb alert, BioCopilot forecasts the 48-hour forward trajectory: viability will drop below 85% within 36 hours if unaddressed."* |
-| **10** | Inspect Explainable AI (XAI) | Tree attribution card: Lactate (42% weight) | *"BioCopilot explains WHY: 42% relative negative weight assigned to lactate accumulation. Notice our clear scientific guard: correlation, not biological causation."* |
-| **11** | Navigate to `/nutrients` | Current Plan vs Optimized Plan | *"The Smart Feed Scheduler modulates feed from 6.0 down to 4.2 mL/h, triggering cells to switch from producing lactate to consuming it."* |
-| **12** | Inspect Economics (`/cost`) | Savings card: **+22.18% Cost Reduction** | *"This dynamic feeding saves 22.18% in media cost while extending harvest viability by 6.5%."* |
-| **13** | Navigate to `/scaleup` | 4 Scaling Regimes (2 L → 1,000 L) | *"What happens when this 2 L recipe moves to 1,000 L? The scale-up engine shows Constant Tip Speed starves the cells of oxygen (kLa < 7 h⁻¹), while Constant Mixing Time shears cells at >2.5 m/s. Constant P/V is the safest operating window."* |
-| **14** | Navigate to `/approval` | Pending Recommendation REC-FEED-9901 | *"Crucially, BioCopilot never directly controls bioreactor pumps. Every action enters a human-in-the-loop approval gate."* |
-| **15** | Click **"APPROVE & LOG AUDIT"** | Enters comment & approves | *"The lead engineer enters their rationale. The decision is recorded in an immutable FDA 21 CFR Part 11 compliant audit trail."* |
-| **16** | Navigate to `/reports` | Full Compliance Batch Dossier | *"The entire run dossier is compiled into an auditable Markdown report ready for QA and regulatory submission."* |
+> *"Cell-culture bioprocess development is plagued by high media costs, metabolic stress, and unpredictable scale-up from benchtop 2 L bioreactors to 1,000 L pilot plants.  
+BioCopilot acts as an intelligent decision-support partner. It ingests process telemetry, validates data quality, streams virtual sensor data, predicts metabolic risks, optimizes nutrient feed & media costs, and evaluates engineering scale-up trade-offs — requiring explicit human operator approval before any recommendation is accepted."*
 
 ---
 
-## 3. Anticipated Judge Questions & Bulletproof Answers
+## Step-by-Step Demo Flow (16 Steps)
 
-### Q1: "How do you avoid hallucinating biological results?"
-> **Answer:** *"BioCopilot does not generate ungrounded text. Every prediction comes from verified scikit-learn regressors benchmarked with batch-split GroupKFold cross-validation (zero row-level temporal leakage). When data is missing, the system explicitly displays 'Not available in source data' rather than fabricating values."*
+| Step | Time | UI Screen | Action / Interaction | Key Takeaway |
+|:---:|:---:|:---|:---|:---|
+| **1** | 0:00 | **Overview** | Click "START 5-MIN DEMO" on Home screen. | Clear problem-solution pipeline presented instantly. |
+| **2** | 0:15 | **Data Ingestion** | View ingested CHO cell dataset & data quality report. | Quality checks before AI predictions. |
+| **3** | 0:30 | **Data Quality** | Review physiological range checks & Data Quality Score (96%). | Transparent validation rules, no silent data alteration. |
+| **4** | 0:45 | **Process Dashboard** | Select `Batch_02_LactateStress` historical profile. | Baseline healthy growth profile vs metabolic drift. |
+| **5** | 1:00 | **Live Monitor** | Start 12-channel Virtual Sensor stream (2s interval). | Telemetry simulation clearly marked. |
+| **6** | 1:15 | **Fault Injection** | Click **"Inject Glucose Overfeed"** button. | Interactive demo trigger for judges. |
+| **7** | 1:30 | **Live Telemetry** | Observe SENSOR-04 (Glucose) & SENSOR-06 (Lactate) spike. | Live real-time response to process perturbation. |
+| **8** | 1:45 | **Risk Center** | View **HIGH SEVERITY Alert**: Glucose overfeed driving lactate accumulation. | Explains severity, trend, evidence, and possible drivers. |
+| **9** | 2:00 | **AI Predictions** | View 24h VCD & Viability drop prediction with confidence bounds. | Machine learning foresight with uncertainty bounds. |
+| **10** | 2:15 | **Explainable AI** | Click **SHAP Feature Contribution** view. | Explicit distinction: Model contribution vs biological causation. |
+| **11** | 2:30 | **Feed Scheduler** | Run What-If Feed Scenario: Current vs Smart Bounded Feed. | Evaluates lower feed rate to prevent lactate accumulation. |
+| **12** | 2:45 | **Media Cost** | Compare Media Cost breakdown (INR/USD) & Pareto frontier. | Real cost savings computed directly from pricing table. |
+| **13** | 3:00 | **Scale-Up Engine** | Run 2 L → 10 L → 100 L → 1,000 L under Constant $P/V$ & $k_L a$. | Engineering trade-offs ($Re$, shear risk, DO limitations). |
+| **14** | 3:15 | **Human Approval** | Submit Recommendation to Human Approval Queue. | System is strictly Decision-Support, no automated control. |
+| **15** | 3:30 | **Approval Action** | Operator enters comment and clicks **APPROVE**. | Immutable audit trail recorded in SQLite DB. |
+| **16** | 3:45 | **Report** | Click **"Generate Bioprocess Decision Report"**. | Instant complete PDF/Markdown export for regulatory review. |
 
-### Q2: "Can this AI accidentally ruin a million-dollar batch?"
-> **Answer:** *"No. By architecture, BioCopilot is strictly a decision-support system. It has zero network or hardware write access to bioreactor PLCs or pumps. Every single recommendation requires affirmative operator sign-off with mandatory review justifications."*
+---
 
-### Q3: "Why did you choose Constant P/V for 1,000 L scale-up?"
-> **Answer:** *"Mammalian CHO cells lack cell walls and are shear-sensitive. Scaling by constant mixing time requires 85 RPM at 1,000 L, driving tip speed above 2.5 m/s, which causes catastrophic cell lysis. Constant P/V maintains an acceptable tip speed of 1.48 m/s while delivering kLa of 14.8 h⁻¹, perfectly matching the culture's oxygen uptake rate."*
+## Golden Rules for Demonstration
+
+1. Never imply direct control of physical lab hardware.
+2. Always emphasize that predictions include confidence intervals.
+3. Keep the 5-Minute Guided Demo button visible on the main navigation.
